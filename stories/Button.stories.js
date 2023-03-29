@@ -27,7 +27,7 @@ export const Primary = Template.bind({});
 // More on args: https://storybook.js.org/docs/html/writing-stories/args
 Primary.args = {
   primary: true,
-  label: 'Button',
+  label: 'View All',
 };
 
 export const Secondary = Template.bind({});
