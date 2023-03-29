@@ -34,3 +34,4 @@ jobs:
         with:
           token: ${{ secrets.TT }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          workingDir: stories
