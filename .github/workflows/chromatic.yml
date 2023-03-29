@@ -6,9 +6,9 @@ name: "Chromatic"
 # Event for the workflow
 on: pull_request
 
-defaults:
-  run:
-    working-directory: frontend
+# defaults:
+#   run:
+#     working-directory: frontend
 
 # List of jobs
 jobs:
