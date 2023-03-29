@@ -6,7 +6,6 @@ export default {
   // More on argTypes: https://storybook.js.org/docs/html/api/argtypes
   argTypes: {
     backgroundColor: { control: 'color' },
-    Color: { control: 'color' },
     label: { control: 'text' },
     onClick: { action: 'onClick' },
     primary: { control: 'boolean' },

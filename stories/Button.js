@@ -4,7 +4,6 @@ export const createButton = ({
   primary = false,
   size = 'medium',
   backgroundColor,
-  Color,
   label,
   onClick,
 }) => {
@@ -17,7 +16,6 @@ export const createButton = ({
   btn.className = ['storybook-button', `storybook-button--${size}`, mode].join(' ');
 
   btn.style.backgroundColor = backgroundColor;
-  btn.style.color = Color;
 
   return btn;
 };
