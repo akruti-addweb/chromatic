@@ -15,19 +15,18 @@ jobs:
       # 👇 Version 2 of the action
       - name: Checkout repository
         uses: actions/checkout@v2
+      - uses: actions/setup-node@v3
         with:
-          fetch-depth: 0 # 👈 Required to retrieve git history
+          node-version: 16
       - name: Install dependencies
         # 👇 Install dependencies with the same package manager used in the project (replace it as needed), e.g. yarn, npm, pnpm
         run: yarn
         # 👇 Checks if the branch is main and accepts all changes in Chromatic
-      - name: Publish to Chromatic and auto accept changes
+      - name: Deploy Chromatic
         if: github.ref == 'refs/heads/main'
         uses: chromaui/action@v1
         # Required options for the Chromatic GitHub Action
         with:
+          token: ${{ secrets.GITHUB_TOKEN }}
           # 👇 Chromatic projectToken, refer to the manage page to obtain it.
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-          # buildScriptName: build-storybook
-          autoAcceptChanges: true # 👈 Option to accept all changes
-          exitZeroOnChanges: true
