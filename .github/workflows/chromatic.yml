@@ -4,7 +4,7 @@
 name: "Chromatic"
 
 # Event for the workflow
-on: pull_request
+on: push
 
 # List of jobs
 jobs:
@@ -15,9 +15,6 @@ jobs:
       # 👇 Version 2 of the action
       - name: Checkout repository
         uses: actions/checkout@v2
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
       - name: Install dependencies
         # 👇 Install dependencies with the same package manager used in the project (replace it as needed), e.g. yarn, npm, pnpm
         run: yarn
