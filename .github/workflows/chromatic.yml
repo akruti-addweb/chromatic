@@ -32,4 +32,4 @@ jobs:
       - name: Chromatic UI Tests
         if: github.ref == 'refs/heads/main'
         run: |
-          chromatic test --project-token=46d49e475ab7 --exit-zero-on-changes
+          npx chromatic --project-token=46d49e475ab7
