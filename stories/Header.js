@@ -8,7 +8,7 @@ export const createHeader = ({ user, onLogout, onLogin, onCreateAccount }) => {
   wrapper.className = 'wrapper';
 
   const logo = `<div>
-    <h1>ADDWEB SOLUTION</h1>
+    <h1>AddWeb</h1>
   </div>`;
 
   wrapper.insertAdjacentHTML('afterbegin', logo);
