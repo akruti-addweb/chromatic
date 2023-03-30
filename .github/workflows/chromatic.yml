@@ -22,6 +22,7 @@ jobs:
         run: yarn
         # 👇 Checks if the branch is main and accepts all changes in Chromatic
       - name: Publish to Chromatic and auto accept changes
+        if: github.ref == 'refs/heads/main'
         uses: chromaui/action@v1
         # Required options for the Chromatic GitHub Action
         with:
