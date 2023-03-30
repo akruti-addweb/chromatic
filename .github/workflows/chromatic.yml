@@ -18,8 +18,7 @@ jobs:
 
       - name: Build and Test
         run: |
-          yarn 
-          yarn chromatic --exit-zero-on-changes
+          yarn
 
       - name: Publish Storybook to Chromatic
         if: github.ref == 'refs/heads/main'
