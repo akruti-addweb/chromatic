@@ -18,8 +18,8 @@ jobs:
 
       - name: Build and Test
         run: |
-          yarn storybook
-          npx chromatic --project-token=46d49e475ab7 --exit-zero-on-changes
+          yarn build
+          yarn chromatic --exit-zero-on-changes
 
       - name: Publish Storybook to Chromatic
         if: github.ref == 'refs/heads/main'
