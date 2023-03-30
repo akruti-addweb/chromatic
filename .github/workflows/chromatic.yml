@@ -22,7 +22,7 @@ jobs:
         # 👇 Install dependencies with the same package manager used in the project (replace it as needed), e.g. yarn, npm, pnpm
         run: yarn
         # 👇 Checks if the branch is main and accepts all changes in Chromatic
-      - name: Deploy Chromatic
+      - name: Publish Chromatic
         if: github.ref == 'refs/heads/main'
         uses: chromaui/action@v1
         # Required options for the Chromatic GitHub Action
