@@ -1,32 +1,35 @@
-# .github/workflows/chromatic.yml
+name: Chromatic Workflow
 
-# Workflow name
-name: "Chromatic"
+on:
+  pull_request:
+    branches: [main]
 
-# Event for the workflow
-on: pull_request
-
-# List of jobs
 jobs:
   chromatic-deployment:
-    # Operating System
     runs-on: ubuntu-latest
     steps:
-      # 👇 Version 2 of the action
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v2
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
+
       - name: Install dependencies
-        # 👇 Install dependencies with the same package manager used in the project (replace it as needed), e.g. yarn, npm, pnpm
-        run: yarn
-        # 👇 Checks if the branch is main and accepts all changes in Chromatic
-      - name: Deploy Chromatic
-        # if: github.ref == 'refs/heads/main'
+        run: |
+          yarn install
+          yarn global add chromatic-cli
+
+      - name: Build and Test
+        run: |
+          yarn
+
+      - name: Publish Storybook to Chromatic
+        if: github.ref == 'refs/heads/main'
         uses: chromaui/action@v1
-        # Required options for the Chromatic GitHub Action
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          # 👇 Chromatic projectToken, refer to the manage page to obtain it.
-          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          projectToken: 46d49e475ab7
+          # Location of Storybook build output
+          storybookBuildDir: ./storybook-static
+
+      - name: Chromatic UI Tests
+        if: github.ref == 'refs/heads/main'
+        run: |
+          npx chromatic --project-token=46d49e475ab7
