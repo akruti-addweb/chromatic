@@ -4,26 +4,23 @@
 name: "Chromatic"
 
 # Event for the workflow
-on: push
+on: pull_request
 
 # List of jobs
 jobs:
   chromatic-deployment:
     # Operating System
     runs-on: ubuntu-latest
+    # Job steps
     steps:
-      # 👇 Version 2 of the action
-      - name: Checkout repository
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
       - name: Install dependencies
         # 👇 Install dependencies with the same package manager used in the project (replace it as needed), e.g. yarn, npm, pnpm
         run: yarn
-        # 👇 Checks if the branch is main and accepts all changes in Chromatic
-      - name: Publish Chromatic
-        if: github.ref == 'refs/heads/main'
+        # 👇 Adds Chromatic as a step in the workflow
+      - name: Publish to Chromatic
         uses: chromaui/action@v1
-        # Required options for the Chromatic GitHub Action
+        # Chromatic GitHub Action options
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
           # 👇 Chromatic projectToken, refer to the manage page to obtain it.
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
