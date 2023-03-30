@@ -4,28 +4,30 @@
 name: "Chromatic"
 
 # Event for the workflow
-on: push
+on: pull_request
 
 # List of jobs
 jobs:
   chromatic-deployment:
     # Operating System
     runs-on: ubuntu-latest
-    jobs:
-      chromatic-deployment:
-        steps:
-          # 👇 Version 2 of the action
-          - name: Checkout repository
-            uses: actions/checkout@v2
-            with:
-              fetch-depth: 0 # 👈 Required to retrieve git history
-          - name: Install dependencies
-            # 👇 Install dependencies with the same package manager used in the project (replace it as needed), e.g. yarn, npm, pnpm
-            run: yarn
-            # 👇 Adds Chromatic as a step in the workflow
-          - name: Publish to Chromatic
-            uses: chromaui/action@v1
-            # Options required to the GitHub Chromatic Action
-            with:
-              # 👇 Chromatic projectToken, refer to the manage page to obtain it.
-              projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+    steps:
+      # 👇 Version 2 of the action
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # 👈 Required to retrieve git history
+      - name: Install dependencies
+        # 👇 Install dependencies with the same package manager used in the project (replace it as needed), e.g. yarn, npm, pnpm
+        run: yarn
+        # 👇 Checks if the branch is main and accepts all changes in Chromatic
+      - name: Publish to Chromatic and auto accept changes
+        if: github.ref == 'refs/heads/main'
+        uses: chromaui/action@v1
+        # Required options for the Chromatic GitHub Action
+        with:
+          # 👇 Chromatic projectToken, refer to the manage page to obtain it.
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          buildScriptName: build-storybook
+          autoAcceptChanges: true # 👈 Option to accept all changes
+          exitZeroOnChanges: true
