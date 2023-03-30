@@ -18,6 +18,8 @@ jobs:
       - name: Install dependencies
         # 👇 Install dependencies with the same package manager used in the project (replace it as needed), e.g. yarn, npm, pnpm
         run: yarn
+      - name: Build and Test
+        run: yarn run build && yarn test
         # 👇 Checks if the branch is main and accepts all changes in Chromatic
       - name: Publish Chromatic
         if: github.ref == 'refs/heads/main'
