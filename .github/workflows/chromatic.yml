@@ -28,7 +28,6 @@ jobs:
         with:
           # 👇 Chromatic projectToken, refer to the manage page to obtain it.
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-        buildScriptName: build-storybook
         # 👇 Checks if the branch is main and accepts all changes in Chromatic
       - name: Publish to Chromatic and auto accept changes
         if: github.ref == 'refs/heads/main'
