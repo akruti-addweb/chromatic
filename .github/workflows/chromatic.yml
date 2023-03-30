@@ -25,11 +25,11 @@ jobs:
         uses: chromaui/action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          projectToken: 46d49e475ab7
           # Location of Storybook build output
           storybookBuildDir: ./storybook-static
 
       - name: Chromatic UI Tests
         if: github.ref == 'refs/heads/main'
         run: |
-          chromatic test --project-token="${{ secrets.CHROMATIC_PROJECT_TOKEN }}" --exit-zero-on-changes
+          chromatic test --project-token=46d49e475ab7 --exit-zero-on-changes
