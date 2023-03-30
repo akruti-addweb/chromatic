@@ -24,7 +24,7 @@ jobs:
         # 👇 Checks if the branch is main and accepts all changes in Chromatic
       - name: Deploy Chromatic
         # if: github.ref == 'refs/heads/main'
-        uses: chromaui/action@v1
+        uses: chromaui/action
         # Required options for the Chromatic GitHub Action
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
