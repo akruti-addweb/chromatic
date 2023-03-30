@@ -14,7 +14,7 @@ jobs:
     steps:
       # 👇 Version 2 of the action
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v1
         with:
           fetch-depth: 0 # 👈 Required to retrieve git history
       - name: Install dependencies
@@ -23,7 +23,7 @@ jobs:
         # 👇 Checks if the branch is main and accepts all changes in Chromatic
       - name: Deploy Chromatic
         if: github.ref == 'refs/heads/main'
-        uses: chromaui/action@v2
+        uses: chromaui/action@v1
         # Required options for the Chromatic GitHub Action
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
