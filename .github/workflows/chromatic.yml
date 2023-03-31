@@ -14,8 +14,8 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
-      - name: Build Storybook
-        run: yarn storybook
+      # - name: Build Storybook
+      #   run: yarn storybook
 
       - name: UI Testing and Storybook Publishing
         env:
