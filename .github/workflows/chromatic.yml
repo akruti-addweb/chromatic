@@ -11,7 +11,7 @@ jobs:
   chromatic-deployment:
     # Operating System
     runs-on: ubuntu-latest
-    node-version: [16.x]
+    node-version: 16.x
     # Job steps
     steps:
       - uses: actions/checkout@v1
