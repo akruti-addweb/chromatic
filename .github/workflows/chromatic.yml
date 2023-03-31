@@ -22,7 +22,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           projectToken: cf7d99e69e32
           # Location of Storybook build output
-          storybookBuildDir: storybook-static
+          # storybookBuildDir: storybook-static
 
       - name: Chromatic UI Tests
         # if: github.ref == 'refs/heads/main'
