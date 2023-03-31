@@ -18,5 +18,5 @@ jobs:
       - name: Deploy to Chromatic
         uses: chromaui/action@v1
         with:
-          token: ${{ secrets.CHROMATIC_TOKEN }}
-          projectToken: cf7d99e69e32
+          # 👇 Chromatic projectToken, refer to the manage page to obtain it.
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
