@@ -13,7 +13,6 @@ jobs:
 
       - name: Install dependencies
         run: yarn install
-          yarn global add chromatic-cli
 
       - name: Build Storybook
         run: yarn build-storybook
