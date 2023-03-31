@@ -1,9 +1,6 @@
 name: Deploy Storybook to Chromatic
 
-on:
-  push:
-    branches:
-      - main
+on: pull_request
 
 jobs:
   chromatic:
@@ -23,4 +20,4 @@ jobs:
         with:
           token: ${{ secrets.CHROMATIC_TOKEN }}
           projectToken: cf7d99e69e32
-          storybookBuildDir: storybook-static
+          # storybookBuildDir: storybook-static
