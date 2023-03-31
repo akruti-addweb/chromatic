@@ -24,4 +24,4 @@ jobs:
           # CHROMATIC_USERNAME: ${{ secrets.CHROMATIC_USERNAME }}
           # CHROMATIC_PASSWORD: ${{ secrets.CHROMATIC_PASSWORD }}
         run: |
-          npx chromatic --exit-zero-on-changes
+          npx chromatic --project-token=CHROMATIC_PROJECT_TOKEN
