@@ -12,12 +12,11 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
-      - name: Build Storybook
-        run: yarn build-storybook
+      - name: Run Storybook
+        run: yarn storybook
 
       - name: Deploy to Chromatic
         uses: chromaui/action@v1
         with:
           token: ${{ secrets.CHROMATIC_TOKEN }}
           projectToken: cf7d99e69e32
-          # storybookBuildDir: storybook-static
