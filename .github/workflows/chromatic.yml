@@ -19,7 +19,7 @@ jobs:
         run: yarn
         # 👇 Adds Chromatic as a step in the workflow
       - name: Publish to Chromatic
-        run: npx chromatic --project-token=CHROMATIC_PROJECT_TOKENs
+        run: npx chromatic --project-token=CHROMATIC_PROJECT_TOKEN
         # # Chromatic GitHub Action options
         # with:
         #   # 👇 Chromatic projectToken, refer to the manage page to obtain it.
