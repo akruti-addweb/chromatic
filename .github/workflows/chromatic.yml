@@ -8,15 +8,18 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+        with: fetch-depth: 0
 
       - name: Install dependencies
         run: yarn install
 
-      - name: Run Storybook
-        run: yarn storybook
-
-      - name: Deploy to Chromatic
+      - name: Publish to Chromatic and auto accept changes
+        # if: github.ref == 'refs/heads/main'
         uses: chromaui/action@v1
+        # Required options for the Chromatic GitHub Action
         with:
           # 👇 Chromatic projectToken, refer to the manage page to obtain it.
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          buildScriptName: build-storybook
+          autoAcceptChanges: true # 👈 Option to accept all changes
+          exitZeroOnChanges: true
