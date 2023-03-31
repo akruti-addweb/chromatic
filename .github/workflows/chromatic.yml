@@ -13,14 +13,16 @@ jobs:
 
       - name: Install dependencies
         run: yarn install
+          yarn global add chromatic-cli
 
-      - name: Publish to Chromatic and auto accept changes
-        # if: github.ref == 'refs/heads/main'
-        uses: chromaui/action@v1
-        # Required options for the Chromatic GitHub Action
-        with:
-          # 👇 Chromatic projectToken, refer to the manage page to obtain it.
-          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-          buildScriptName: build-storybook
-          autoAcceptChanges: true # 👈 Option to accept all changes
-          exitZeroOnChanges: true
+      - name: Build Storybook
+        run: yarn build-storybook
+
+      - name: UI Testing and Storybook Publishing
+        env:
+          CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          # CHROMATIC_USERNAME: ${{ secrets.CHROMATIC_USERNAME }}
+          # CHROMATIC_PASSWORD: ${{ secrets.CHROMATIC_PASSWORD }}
+        run: |
+          yarn test-ui
+          npx chromatic --exit-zero-on-changes
