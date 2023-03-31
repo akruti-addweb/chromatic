@@ -23,5 +23,4 @@ jobs:
           # CHROMATIC_USERNAME: ${{ secrets.CHROMATIC_USERNAME }}
           # CHROMATIC_PASSWORD: ${{ secrets.CHROMATIC_PASSWORD }}
         run: |
-          yarn run storybook
           npx chromatic --exit-zero-on-changes
