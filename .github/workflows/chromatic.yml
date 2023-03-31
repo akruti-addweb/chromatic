@@ -18,7 +18,7 @@ jobs:
       #   run: yarn storybook
 
       - name: UI Testing and Storybook Publishing
-        if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/'
         env:
           CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           # CHROMATIC_USERNAME: ${{ secrets.CHROMATIC_USERNAME }}
