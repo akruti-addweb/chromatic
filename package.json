@@ -18,8 +18,14 @@
     "build-storybook": "build-storybook",
     "chromatic": "npx chromatic --exit-zero-on-changes"
   },
-  "name": "",
-  "version": "",
+  "name": "demo",
+  "version": "1.0.0",
   "readme": "ERROR: No README data found!",
-  "_id": "@"
+  "_id": "@",
+  "description": "Demo for chromatic",
+  "main": "index.js",
+  "repository": "https://github.com/akruti-addweb/chromatic.git",
+  "author": "akruti-addweb",
+  "license": "MIT",
+  "private": null
 }
