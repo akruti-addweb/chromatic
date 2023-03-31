@@ -1,8 +1,6 @@
 name: Chromatic Workflow
 
-on:
-  pull_request:
-    branches: [main]
+on: push
 
 jobs:
   chromatic-deployment:
@@ -16,12 +14,8 @@ jobs:
           yarn install
           yarn global add chromatic-cli
 
-      - name: Build and Test
-        run: |
-          yarn
-
       - name: Publish Storybook to Chromatic
-        if: github.ref == 'refs/heads/main'
+        # if: github.ref == 'refs/heads/main'
         uses: chromaui/action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -30,6 +24,6 @@ jobs:
           storybookBuildDir: ./storybook-static
 
       - name: Chromatic UI Tests
-        if: github.ref == 'refs/heads/main'
+        # if: github.ref == 'refs/heads/main'
         run: |
           npx chromatic --project-token=cf7d99e69e32
