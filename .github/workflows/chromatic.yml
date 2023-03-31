@@ -13,7 +13,7 @@ jobs:
         run: yarn install
 
       - name: Build Storybook
-        run: yarn build-storybook --quiet
+        run: yarn build-storybook
 
       - name: Deploy to Chromatic
         uses: chromaui/action@v1
