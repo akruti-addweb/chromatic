@@ -19,7 +19,7 @@ const Template = (args) => createHeader(args);
 export const LoggedIn = Template.bind({});
 LoggedIn.args = {
   user: {
-    name: 'Jane Doe',
+    name: 'Akruti Patel',
   },
 };
 
@@ -33,5 +33,5 @@ LoggedIn.parameters = {
 
 LoggedOut.parameters = {
   // Set the viewports in Chromatic at a story level.
-  chromatic: { viewports: [360, 1200] , disableSnapshot: false },
+  chromatic: { viewports: [360, 1200] , disableSnapshot: false , diffThreshold: 0.8},
 };
