@@ -8,6 +8,7 @@ export default {
     backgroundColor: { control: 'color' },
     label: { control: 'text' },
     onClick: { action: 'onClick' },
+    isHovered: {control: 'boolean'},
     primary: { control: 'boolean' },
     size: {
       control: { type: 'select' },
@@ -24,15 +25,18 @@ const Template = ({ label, ...args }) => {
 };
 
 export const Primary = Template.bind({});
+
 // More on args: https://storybook.js.org/docs/html/writing-stories/args
 Primary.args = {
   primary: true,
   label: 'View All',
+  // label: `I'm :hover`
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
   label: 'Button',
+  isHovered: true,
 };
 
 export const Large = Template.bind({});
@@ -46,3 +50,9 @@ Small.args = {
   size: 'small',
   label: 'Button',
 };
+
+// export const ActiveState = Template.bind({});
+// ActiveState.args = {
+//   isActive: true,
+//   label: `I'm :active`
+// };
