@@ -27,7 +27,4 @@ jobs:
         run: yarn
         # 👇 Adds Chromatic as a step in the workflow
       - name: Publish to Chromatic
-        run: npx chromatic --project-token=cf7d99e69e32
-        with:
-          exit-zero-on-changes: true
-          auto-accept-changes: true
+        run: npx chromatic --project-token=cf7d99e69e32 --exit-zero-on-changes --auto-accept-changes 
