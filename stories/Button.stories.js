@@ -1,4 +1,5 @@
 import { createButton } from './Button';
+import isChromatic from 'chromatic/isChromatic';
 
 // More on default export: https://storybook.js.org/docs/html/writing-stories/introduction#default-export
 export default {
@@ -12,7 +13,7 @@ export default {
     primary: { control: 'boolean' },
     size: {
       control: { type: 'select' },
-      options: ['small', 'medium', 'large'],
+      options: ['small', 'medium', 'large','chromaticbutton'],
     },
   },
 };
@@ -30,11 +31,8 @@ export const Primary = Template.bind({});
 Primary.args = {
   primary: true,
   label: 'View All',
-  // label: `I'm :hover`
 };
-Primary.args = {
-  label: isChromatic() ? `I'm in Chromatic` : `Not in Chromatic`,
-};
+
 
 export const Secondary = Template.bind({});
 Secondary.args = {
@@ -54,8 +52,8 @@ Small.args = {
   label: 'Button',
 };
 
-// export const ActiveState = Template.bind({});
-// ActiveState.args = {
-//   isActive: true,
-//   label: `I'm :active`
-// };
+export const chromaticbutton = Template.bind({});
+chromaticbutton.args = {
+  size: 'small',
+  label: isChromatic() ? `I'm in Chromatic` : `Not in Chromatic`,
+};
