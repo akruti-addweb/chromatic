@@ -22,7 +22,7 @@ h1 {
   color: #033433;
 }
 
-button + button {
+button+button {
   margin-left: 10px;
 }
 
@@ -30,4 +30,12 @@ button + button {
   color: #033433;
   font-size: 14px;
   margin-right: 10px;
+}
+
+@media (max-width: 7667px) {
+  h1 {
+    font-size: 24px;
+    line-height: 32px;
+    color: teal;
+  }
 }
