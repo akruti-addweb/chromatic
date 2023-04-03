@@ -28,5 +28,10 @@ LoggedOut.args = {};
 
 LoggedIn.parameters = {
   // Set the viewports in Chromatic at a story level.
-  chromatic: { viewports: [320, 1920] , disableSnapshot: false },
+  chromatic: { viewports: [360, 1200] , disableSnapshot: false },
+};
+
+LoggedOut.parameters = {
+  // Set the viewports in Chromatic at a story level.
+  chromatic: { viewports: [360, 1200] , disableSnapshot: false },
 };
