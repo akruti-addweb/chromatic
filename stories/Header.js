@@ -15,7 +15,7 @@ export const createHeader = ({ user, onLogout, onLogin, onCreateAccount }) => {
 
   const account = document.createElement('div');
   if (user) {
-    const welcomeMessage = `<span class="welcome">Welcome, <b>${user.name}</b>!</span>`;
+    const welcomeMessage = `<span class="welcome" data-chromatic="ignore">Welcome, <b>${user.name}</b>!</span>`;
     account.innerHTML = welcomeMessage;
     account.appendChild(createButton({ size: 'small', label: 'Log out', onClick: onLogout }));
   } else {
