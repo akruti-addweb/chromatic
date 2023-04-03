@@ -25,3 +25,8 @@ LoggedIn.args = {
 
 export const LoggedOut = Template.bind({});
 LoggedOut.args = {};
+
+LoggedIn.parameters = {
+  // Set the viewports in Chromatic at a story level.
+  chromatic: { viewports: [320, 1920] },
+};
