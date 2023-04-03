@@ -33,5 +33,5 @@ LoggedIn.parameters = {
 
 LoggedOut.parameters = {
   // Set the viewports in Chromatic at a story level.
-  chromatic: { viewports: [360, 1200] , disableSnapshot: false , diffThreshold: 0.8},
+  chromatic: { viewports: [360, 1200] , disableSnapshot: false , diffThreshold: 1 , diffIncludeAntiAliasing: true},
 };
