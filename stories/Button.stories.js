@@ -32,6 +32,9 @@ Primary.args = {
   label: 'View All',
   // label: `I'm :hover`
 };
+Primary.args = {
+  label: isChromatic() ? `I'm in Chromatic` : `Not in Chromatic`,
+};
 
 export const Secondary = Template.bind({});
 Secondary.args = {
